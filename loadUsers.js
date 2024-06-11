@@ -21,10 +21,16 @@
                         '</tr>';
                     tbody.append(row);
                 });
+                
             },
             error: function(xhr, status, error) {
                 console.error('Error al obtener usuarios:', status, error);
             }
         })
     });
+    
 
+    function editarUsuario(id) {
+        window.location.href = 'editarUsuario.php?id=' + id;
+    }
+    

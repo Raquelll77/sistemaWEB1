@@ -32,7 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: inicio.php");
         exit;
     } else {
-        $error = "Usuario o contraseña incorrectos.";
+        echo "CREDENCIALES INVALIDAS";
+        header("Location: index.html");        
+        
     }
 
     $conexion->close();

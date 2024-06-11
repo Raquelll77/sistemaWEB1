@@ -107,8 +107,9 @@ if (!isset($_SESSION['USUARIO'])) {
             <li><a href="#modulo-usuarios">Usuarios</a></li>
             <li><a href="#modulo-exportar">Exportar Datos</a></li>
             <li><a href="#modulo-reporte">Reporte Semanal</a></li>
+            <li><a href="cerrar_sesion.php">Cerrar sesión</a><li>
         </ul>
-        <p><a href="cerrar_sesion.php">Cerrar sesión</a></p>
+        
     </div>
 
     <div class="content">
@@ -142,6 +143,7 @@ if (!isset($_SESSION['USUARIO'])) {
                     </tr>
                 </tbody>
             </table>
+
         </div>
 
         <div id="modulo-exportar" class="module">
