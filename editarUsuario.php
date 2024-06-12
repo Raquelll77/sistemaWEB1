@@ -48,16 +48,12 @@
         }
     </style>
 <?php
+
+include 'database.php';
 // Verificar si se ha enviado un ID de usuario válido en la URL
 if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     $idUsuario = $_GET['id'];
-
-    // Realizar la conexión a la base de datos y obtener los datos del usuario con el ID proporcionado
-    $conexion = new mysqli('localhost', 'root', 'Alvarado18#', 'sistemaWEB');
-    if ($conexion->connect_error) {
-        die("Error de conexión: " . $conexion->connect_error);
-    }
-
+   
     $query = "SELECT * FROM usuarios WHERE IDUSUARIO = '".$idUsuario."'";
     $result = $conexion->query($query);
 
@@ -87,27 +83,30 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 </form>
 
 <script>
+    
     $(document).ready(function() {
-        // Escuchar el envío del formulario de edición
-        $('#editar-form').submit(function(e) {
-            e.preventDefault(); // Prevenir el envío por defecto
+        $('#crear-form').submit(function(e) {
+            e.preventDefault();
 
-            // Obtener los datos del formulario
             var formData = $(this).serialize();
 
-            // Realizar la solicitud AJAX para guardar los cambios
             $.ajax({
-                url: 'guardarUsuario.php',
+                url: 'guardarNuevoUsuario.php',
                 type: 'POST',
                 data: formData,
+                dataType: 'json',
                 success: function(response) {
-                    alert('Usuario actualizado correctamente');
-                    window.location.href = 'inicio.php#modulo-usuarios';
+                    alert(response.message);
+                    if (response.status === 'success') {
+                        window.location.href = 'listaUsuarios.php';
+                    }
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error al actualizar usuario:', status, error);
+                    console.error('Error al crear usuario:', status, error);
                 }
             });
         });
     });
+
+
 </script>

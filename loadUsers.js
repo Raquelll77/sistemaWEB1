@@ -33,4 +33,9 @@
     function editarUsuario(id) {
         window.location.href = 'editarUsuario.php?id=' + id;
     }
+
+    function crearUsuario() {
+        window.location.href = 'crearUsuario.php?id=';
+    }
+
     

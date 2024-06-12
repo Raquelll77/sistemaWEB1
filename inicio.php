@@ -115,6 +115,7 @@ if (!isset($_SESSION['USUARIO'])) {
     <div class="content">
         <div id="modulo-usuarios" class="module">
             <h2>Módulo de Usuarios</h2>
+            <button onclick="crearUsuario()">Crear Usuario</button>
             <table>
                 <thead>
                     <tr>
